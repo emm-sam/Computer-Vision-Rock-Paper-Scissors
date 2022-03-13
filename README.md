@@ -4,7 +4,7 @@ In this lab, you will create an interactive Rock-Paper-Scissors game, in which t
 > This is a computer vision project using Google's Teachable Machine to create (train) an image based machine learning algorithm to recognise hand movements from the laptop camera input to play the classic game "Rock, Paper, Scissors" against the computer. 
 > 
 
-## Milestone 1
+## Milestone 1 - Train the model
 
 - The first step is to train an image based machine learning model using the laptop camera on [Teachable Machine](https://teachablemachine.withgoogle.com/)
   - More images mean a more ?effective model, including different backgrounds, lighting levels, distance from camera etc
@@ -18,13 +18,21 @@ In this lab, you will create an interactive Rock-Paper-Scissors game, in which t
 >[Teachable Machine Screenshot](/Desktop/RPS_screenshots/Milestone_1.jpeg)
 
 
+## Milestone 2 - Run the model locally
 
-## Milestone 2
+- The next step is to get the model running locally
+- This involves creating a conda environment "computer_vision"
+- Then installing the dependencies: opencv-python, tensorflow, ipykernal within the new environment
+- Python code required to run the model provided by AiCore
+- Technologies used: Tensorflow, Keras, VSCode 
 
-- What built? What technologies used? Why have you used them? How does it connect to the previous section
-- Technologies used: Teachable Machine, Tensorflow, Keras, VSCode 
+Creating a new environment
+```python
+conda create --name computer_vision
+conda activate computer_vision
+```
 
-
+Running the model from a local python notebook
 ```python
 import cv2
 from keras.models import load_model
@@ -41,6 +49,7 @@ while True:
     data[0] = normalized_image
     prediction = model.predict(data)
     cv2.imshow('frame', frame)
+
     # Press q to close the window
     print(prediction)
     if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -76,4 +85,4 @@ cv2.destroyAllWindows()
 
 ## Conclusions
 
-- what you understood abuot the project, how would you improve it or take it further 
+- what you understood about the project, how would you improve it or take it further 
