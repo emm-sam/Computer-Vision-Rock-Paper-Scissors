@@ -67,7 +67,7 @@ cv2.destroyAllWindows()
 
 >Insert an image or screenshot of what built so far
 
-## Milestone 3
+## Milestone 3 - Create a rock paper scissors game
 
 - Next the rules for the rock paper scissors game is created
 - The computer input is randomly generated from a list (requires python random module)
@@ -107,14 +107,13 @@ elif user_prediction == 'SCISSORS':
         print('DRAW') 
 else:
     print('TRY AGAIN')
-
 """
 ```
 - The statements are converted into a function that takes in a user and computer input as arguments
+- The function is placed outside the while loop and called within it
 
 ```python
 """
-
 def compare_predictions(user_prediction, computer):
     if user_prediction == 'ROCK':
         if computer == 'ROCK':
@@ -150,9 +149,40 @@ print(play)
 
 >Insert an image or screenshot of what built so far
 
-## Milestone 4
+## Milestone 4 - Use the camera as input for the game
 
-- What built? What technologies used? Why have you used them?
+- The next step brings everything together to create a functional game using the camera input and model
+
+
+- A function is created that will interpret the model prediction
+- The model produces an nparray with 4 probabilities corresponding to each trained image label (rock, paper, scissors or none)
+- If the probability that the user is displaying 'ROCK' is over 0.5 based on the trained model, the user_prediction is defined as 'ROCK'
+
+```python
+"""
+def model_predict(prediction):
+    if prediction[0][0] > 0.5:
+        user_prediction = 'ROCK'
+    elif prediction[0][1] > 0.5:
+        user_prediction = 'PAPER'
+    elif prediction[0][2] > 0.5:
+        user_prediction = 'SCISSORS'
+    else:
+        user_prediction = 'NONE'
+    return user_prediction
+"""
+```
+- The functions are used in the while loop with the following code:
+- The user prediction is replaced with the processed input from the camera and model 
+
+```python
+""" 
+    prediction = model.predict(data)
+    computer = random.choice(['ROCK','PAPER', 'SCISSORS'])
+    user_prediction = model_predict(prediction)
+    game_outcome = compare_predictions(user_prediction, computer)
+"""
+```
 
 ```python
 """Insert your code here"""
