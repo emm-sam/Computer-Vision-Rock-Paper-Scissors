@@ -199,7 +199,7 @@ countdown = 5 - time_elapsed            # starts at 5 and decreases
 
 - The game needs to be started, stopped and repeated 
 - This is achieved using flags
-- started flag toggles the game on and off 
+- Started flag toggles the game on and off 
 
 ```python
 """
@@ -227,17 +227,41 @@ While True:
 
 """
 ```
-- To 
+- Adding text over the video screen makes the game easier to understand
+- Adding timestamps sections off the game between no play, countdown and play windows 
 
 ```python
 """
+if countdown >= 0:
+    txt = f'Make your move in {int(countdown)} seconds'
+
+if countdown < 0:
+    txt = "play"
+
 cv2.putText(frame, txt, (50,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2, cv2.LINE_4)
 """
 ```
 
+- Creating multiple flags ensures that only one prediction is made
+- the functions are inside this capture flag 
+- the else function keeps the game outcome on the screen 
 
+```python
+"""
+if play:
+    if capture == False:
+        user_prediction = model_predict(prediction)
+        game_outcome = compare_predictions(user_prediction, computer)
+        txt = f"result: {game_outcome}"
+        capture = True
+    else:
+        txt = f"result: {game_outcome}"
+else:
+    txt = " "
+"""
+```
 
->Insert an image or screenshot of what built so far
+> Insert an image or screenshot of what built so far
 
 ## Conclusions
 
