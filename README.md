@@ -71,8 +71,6 @@ cv2.destroyAllWindows()
 
 - Next the rules for the rock paper scissors game is created
 - The computer input is randomly generated from a list (requires python random module)
-- 
-
 
 ```python
 """
@@ -81,6 +79,74 @@ computer = random.choice(['ROCK','PAPER', 'SCISSORS'])
 user_prediction = input("Enter your move (ROCK, PAPER or SCISSORS): ")
 """
 ```
+
+- The rock paper scissors game uses if-else statments to decide the winner
+
+```python
+"""
+if user_prediction == 'ROCK':
+    if computer == 'ROCK':
+        print('DRAW')
+    elif computer == 'PAPER':
+        print('YOU LOSE')
+    elif computer == 'SCISSORS':
+        print('YOU WIN')
+elif user_prediction == 'PAPER':
+    if computer == 'ROCK':
+        print('YOU WIN')
+    elif computer == 'PAPER':
+        print('DRAW')
+    elif computer == 'SCISSORS':
+        print('YOU LOSE')
+elif user_prediction == 'SCISSORS':
+    if computer == 'ROCK':
+        print('YOU LOSE')
+    elif computer == 'PAPER':
+        print('YOU WIN')
+    elif computer == 'SCISSORS':
+        print('DRAW') 
+else:
+    print('TRY AGAIN')
+
+"""
+```
+- The statements are converted into a function that takes in a user and computer input as arguments
+
+```python
+"""
+
+def compare_predictions(user_prediction, computer):
+    if user_prediction == 'ROCK':
+        if computer == 'ROCK':
+            return 'DRAW'
+        elif computer == 'PAPER':
+            return 'YOU LOSE'
+        elif computer == 'SCISSORS':
+            return 'YOU WIN'
+    elif user_prediction == 'PAPER':
+        if computer == 'ROCK':
+            return 'YOU WIN'
+        elif computer == 'PAPER':
+            return 'DRAW'
+        elif computer == 'SCISSORS':
+            return 'YOU LOSE'
+    elif user_prediction == 'SCISSORS':
+        if computer == 'ROCK':
+            return 'YOU LOSE'
+        elif computer == 'PAPER':
+            return'YOU WIN'
+        elif computer == 'SCISSORS':
+            return 'DRAW'
+    else:
+        return 'TRY AGAIN'
+
+play = compare_predictions(user_prediction, computer)
+print(play)
+
+"""
+```
+
+- Technologies used: python  
 
 >Insert an image or screenshot of what built so far
 
