@@ -28,12 +28,15 @@ In this lab, you will create an interactive Rock-Paper-Scissors game, in which t
 
 Creating a new environment
 ```python
+"""
 conda create --name computer_vision
 conda activate computer_vision
+"""
 ```
 
 Running the model from a local python notebook
 ```python
+"""
 import cv2
 from keras.models import load_model
 import numpy as np
@@ -59,16 +62,24 @@ while True:
 cap.release()
 # Destroy all the windows
 cv2.destroyAllWindows()
+"""
 ```
 
 >Insert an image or screenshot of what built so far
 
 ## Milestone 3
 
-- What built? What technologies used? Why have you used them?
+- Next the rules for the rock paper scissors game is created
+- The computer input is randomly generated from a list (requires python random module)
+- 
+
 
 ```python
-"""Insert your code here"""
+"""
+import random
+computer = random.choice(['ROCK','PAPER', 'SCISSORS'])
+user_prediction = input("Enter your move (ROCK, PAPER or SCISSORS): ")
+"""
 ```
 
 >Insert an image or screenshot of what built so far
