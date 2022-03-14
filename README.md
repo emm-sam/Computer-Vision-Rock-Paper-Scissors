@@ -153,7 +153,7 @@ print(play)
 
 - The next step brings everything together to create a functional game using the camera input and model
 
-
+Task 1: Combine the model with the user input 
 - A function is created that will interpret the model prediction
 - The model produces an nparray with 4 probabilities corresponding to each trained image label (rock, paper, scissors or none)
 - If the probability that the user is displaying 'ROCK' is over 0.5 based on the trained model, the user_prediction is defined as 'ROCK'
@@ -172,8 +172,9 @@ def model_predict(prediction):
     return user_prediction
 """
 ```
-- The functions are used in the while loop with the following code:
+
 - The user prediction is replaced with the processed input from the camera and model 
+- The functions are used in the while loop with the following code:
 
 ```python
 """ 
@@ -183,10 +184,58 @@ def model_predict(prediction):
     game_outcome = compare_predictions(user_prediction, computer)
 """
 ```
+Task 2: Create a countdown timer
+
+- A countdown timer is made using the time.time() function, which is imported and continually running
 
 ```python
-"""Insert your code here"""
+""" 
+import time
+time_0 = time.time()                    # takes a snapshot at a the time the cell or loop runs
+time_elapsed = time.time() - time_0     # starts at 0 and increases
+countdown = 5 - time_elapsed            # starts at 5 and decreases
+"""
 ```
+
+- The game needs to be started, stopped and repeated 
+- This is achieved using flags
+- started flag toggles the game on and off 
+
+```python
+"""
+started = False                                         # flag outside the while loop
+-------------
+While True:
+
+    if not started:                                     # initially is False so skips
+        started = False    
+        
+    if cv2.waitKey(1) & 0xFF == ord('a'):               # press a to start the game
+        if not started:
+            started = True                              # game starts
+            time_0 = time.time()                        # timer starts 
+            
+    if started:
+        time_elapsed = time.time() - time_0
+        countdown = 5 - time_elapsed
+    
+        game_outcome = compare_predictions(user_prediction, computer)
+    
+        if countdown < -4:                              # countdown times out                    
+            if cv2.waitKey(1) & 0xFF == ord('s'):       # s resets the game
+                started = False
+
+"""
+```
+- To 
+
+```python
+"""
+cv2.putText(frame, txt, (50,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2, cv2.LINE_4)
+"""
+```
+
+
 
 >Insert an image or screenshot of what built so far
 
