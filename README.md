@@ -243,8 +243,8 @@ cv2.putText(frame, txt, (50,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2, 
 ```
 
 - Creating multiple flags ensures that only one prediction is made
-- the functions are inside this capture flag 
-- the else function keeps the game outcome on the screen 
+- The functions are inside this capture flag 
+- The else function keeps the game outcome on the screen 
 
 ```python
 """
@@ -258,6 +258,16 @@ if play:
         txt = f"result: {game_outcome}"
 else:
     txt = " "
+"""
+```
+
+Task 3: Repeat until a player gets three victories
+
+- 
+```python
+"""
+
+
 """
 ```
 
