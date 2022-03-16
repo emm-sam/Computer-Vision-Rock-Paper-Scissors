@@ -262,12 +262,38 @@ else:
 ```
 
 Task 3: Repeat until a player gets three victories
+- Adding if-else statements to keep score of each round by adding 1 to variables user_score and computer_score, which are set to 0 outside the while loop
+- game variable counts the number of rounds played
+- the capture flag is then reset so only one outcome is recorded
 
 - 
 ```python
 """
+game += 1
 
+if game_outcome == 'YOU WIN':
+    user_score += 1
+    capture = True
+elif game_outcome == 'YOU LOSE':
+    computer_score += 1
+    capture = True
+else:
+    other += 1
+    capture = True
+"""
+```
 
+- The game ends when either the computer or the user wins 3 games
+
+```python
+"""
+if computer_score == 3:
+    txt = "Game over computer wins"
+    started = False
+
+if user_score == 3:
+    txt = "Game over you win"
+    started = False
 """
 ```
 
@@ -275,4 +301,22 @@ Task 3: Repeat until a player gets three victories
 
 ## Conclusions
 
-- what you understood about the project, how would you improve it or take it further 
+Summary:
+- training and integrating a computer vision machine learning model into a python notebook
+- using a function to convert float in nparray into meaningful game outcome 
+- using a function to compute game results 
+- creating a countdown timer and using if-else statements and flags to control the flow of game 
+
+Personal learning points:
+- how to create a new conda environment
+- how to install software using conda and pip
+- how to choose a random option from a list
+- how to integrate functions into code
+- how to use a while loop
+- how to use flags to control the flow of code
+- how to create a countdown timer using time.time() 
+- how to insert text over a video screen 
+
+Biggest takeaway: 
+- use of flags 
+
